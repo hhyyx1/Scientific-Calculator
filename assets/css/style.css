@@ -1,0 +1,338 @@
+/* 主题变量 */
+:root {
+    /* 明亮主题 */
+    --light-primary: #ffffff;
+    --light-secondary: #f8f9fa;
+    --light-accent: #007bff;
+    --light-text: #212529;
+    --light-shadow: rgba(0, 0, 0, 0.1);
+    
+    /* 暗色主题 */
+    --dark-primary: #1a1a1a;
+    --dark-secondary: #2d2d2d;
+    --dark-accent: #00ff9d;
+    --dark-text: #ffffff;
+    --dark-shadow: rgba(0, 255, 157, 0.2);
+}
+
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body.light-theme {
+    color: var(--light-text);
+}
+
+body.dark-theme {
+    color: var(--dark-text);
+}
+
+/* 背景容器 */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* 粒子层 */
+.particles-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* 允许点击穿透到下层元素 */
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.light-theme #theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--light-accent);
+}
+
+.dark-theme #theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--dark-accent);
+}
+
+#theme-toggle-btn:hover {
+    transform: rotate(45deg);
+}
+
+/* 计算器主体 */
+.calculator {
+    width: 360px;
+    border-radius: 24px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.light-theme .calculator {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 10px 30px var(--light-shadow),
+        0 1px 8px rgba(0,0,0,0.05);
+}
+
+.dark-theme .calculator {
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 10px 30px var(--dark-shadow),
+        0 1px 8px rgba(0,0,0,0.2);
+}
+
+/* 计算器头部 */
+.calculator-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+#mode-selector {
+    padding: 8px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.light-theme #mode-selector {
+    background: var(--light-secondary);
+    border: 1px solid var(--light-secondary);
+    color: var(--light-text);
+}
+
+.dark-theme #mode-selector {
+    background: var(--dark-secondary);
+    border: 1px solid var(--dark-secondary);
+    color: var(--dark-text);
+}
+
+/* 显示屏 */
+.display {
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: right;
+    transition: all 0.3s ease;
+}
+
+.light-theme .display {
+    background: var(--light-secondary);
+}
+
+.dark-theme .display {
+    background: var(--dark-secondary);
+}
+
+.history {
+    font-size: 0.8em;
+    min-height: 20px;
+    margin-bottom: 5px;
+}
+
+.light-theme .history {
+    color: #666;
+}
+
+.dark-theme .history {
+    color: #aaa;
+}
+
+.current {
+    font-size: 2em;
+    word-wrap: break-word;
+    min-height: 50px;
+}
+
+.light-theme .current {
+    color: var(--light-text);
+}
+
+.dark-theme .current {
+    color: var(--dark-text);
+}
+
+/* 错误状态 */
+.error {
+    color: #d63031 !important;
+    animation: shake 0.5s linear;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 按键网格 */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* 按键样式 */
+button {
+    border-radius: 16px;
+    padding: 18px;
+    font-size: 1.2em;
+    font-weight: 500;
+    border: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.light-theme button {
+    background: var(--light-secondary);
+    color: var(--light-text);
+}
+
+.dark-theme button {
+    background: var(--dark-secondary);
+    color: var(--dark-text);
+}
+
+/* 操作符按钮 */
+.light-theme .operator {
+    background: var(--light-accent);
+    color: white;
+}
+
+.dark-theme .operator {
+    background: var(--dark-accent);
+    color: var(--dark-primary);
+}
+
+/* 等号按钮 */
+.light-theme .equals {
+    background: var(--light-accent);
+    color: white;
+}
+
+.dark-theme .equals {
+    background: var(--dark-accent);
+    color: var(--dark-primary);
+}
+
+/* 清除按钮 */
+.clear {
+    background: #dc3545 !important;
+    color: white !important;
+}
+
+/* 科学计算器按键 */
+.scientific-buttons {
+    margin-top: 12px;
+    padding-top: 12px;
+}
+
+.light-theme .scientific-buttons {
+    border-top: 1px solid var(--light-secondary);
+}
+
+.dark-theme .scientific-buttons {
+    border-top: 1px solid var(--dark-secondary);
+}
+
+.light-theme .scientific {
+    background: #6c757d;
+    color: white;
+}
+
+.dark-theme .scientific {
+    background: #3498db;
+    color: white;
+}
+
+/* 按键悬停效果 */
+button:hover {
+    transform: scale(0.95);
+    opacity: 0.9;
+}
+
+/* 按键点击效果 */
+button:active {
+    transform: scale(0.9);
+}
+
+/* 响应式设计 */
+@media (max-width: 400px) {
+    .calculator {
+        width: 95%;
+        margin: 10px;
+        padding: 15px;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.calculator {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.tech-line {
+    animation: pulse 3s infinite;
+}
