@@ -1,0 +1,13 @@
+{
+    "name": "hhyyx1/scientific-calculator",
+    "description": "A modern scientific calculator with PHP backend",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Calculator\\": "src/"
+        }
+    }
+}
