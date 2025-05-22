@@ -1,5 +1,9 @@
 # Scientific Calculator
 
+## 科学计算器展示
+![{C2AB81E9-D590-42D5-96DF-D2D3C133398A}](https://github.com/user-attachments/assets/c7ca2180-baea-4e6b-a915-a4f567323eb7)
+![{5421F84A-6551-45C3-B750-F3BA29DF4322}](https://github.com/user-attachments/assets/8bb2bb00-0570-415d-bdbf-ca9b777d13a1)
+
 **主要特性**:
 - 基础计算功能
 - 科学计算功能
